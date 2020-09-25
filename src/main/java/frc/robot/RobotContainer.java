@@ -8,10 +8,11 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.pneumatics.PneumaticsSubsystem;
-import frc.robot.pneumatics.TogglePneumaticsCommand;
+import frc.robot.pneumatics.SetCylinderCommand;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -42,7 +43,9 @@ public class RobotContainer {
      * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
     private void configureButtonBindings() {
-        new JoystickButton(controller, 1).whenPressed(new TogglePneumaticsCommand(pneumatics));
+        new JoystickButton(controller, 1).whenPressed(new SetCylinderCommand(pneumatics, Value.kForward));
+        new JoystickButton(controller, 2).whenPressed(new SetCylinderCommand(pneumatics, Value.kReverse));
+        new JoystickButton(controller, 3).whenPressed(new SetCylinderCommand(pneumatics, Value.kOff));
     }
 
     /**

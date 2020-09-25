@@ -7,24 +7,27 @@
 
 package frc.robot.pneumatics;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class TogglePneumaticsCommand extends CommandBase {
+public class SetCylinderCommand extends CommandBase {
     private final PneumaticsSubsystem pneumatics;
+    private final Value value;
 
     /**
-     * Creates a new TogglePneumaticsCommand.
+     * Creates a new SetCylinderCommand.
      */
-    public TogglePneumaticsCommand(final PneumaticsSubsystem pneumatics) {
+    public SetCylinderCommand(final PneumaticsSubsystem pneumatics, final DoubleSolenoid.Value value) {
         this.pneumatics = pneumatics;
+        this.value = value;
         addRequirements(pneumatics);
     }
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        var currentSignal = pneumatics.getOutput();
-        pneumatics.setOutput(!currentSignal);
+        pneumatics.setCylinder(value);
     }
 
     // Returns true when the command should end.

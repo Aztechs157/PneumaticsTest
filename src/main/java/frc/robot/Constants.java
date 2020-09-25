@@ -23,8 +23,6 @@ public final class Constants {
 
     public static final class PneumaticsConstants {
 
-        public static final int DIGITAL_OUTPUT_ID = 0;
-
         public static final int COMPRESSOR_ID = 51;
 
         public static final int CYLINDER_FORWARD_ID = 0;
