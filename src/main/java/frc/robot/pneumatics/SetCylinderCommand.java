@@ -7,7 +7,6 @@
 
 package frc.robot.pneumatics;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -18,7 +17,7 @@ public class SetCylinderCommand extends CommandBase {
     /**
      * Creates a new SetCylinderCommand.
      */
-    public SetCylinderCommand(final PneumaticsSubsystem pneumatics, final DoubleSolenoid.Value value) {
+    public SetCylinderCommand(final PneumaticsSubsystem pneumatics, final Value value) {
         this.pneumatics = pneumatics;
         this.value = value;
         addRequirements(pneumatics);
